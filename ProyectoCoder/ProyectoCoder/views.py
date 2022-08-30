@@ -3,20 +3,6 @@ from django.http import HttpResponse
 from django.template import loader
 
 
-def probando(self):
-    
-    nom = 'Nicolas'
-    ap = 'Acosta'
-    lista = [2,2,3,7,2,5]
-
-    diccionario = {'nombre':nom, 'apellido':ap, 'notas':lista}
-
-
-    plantilla = loader.get_template('template.html')
-
-    documento = plantilla.render(diccionario)
-
-    return HttpResponse(documento)
 
 def familiar(self):
     familiar1 = Familiar(nombre = 'Nicolas', apellido = 'Acosta', edad = '28')
