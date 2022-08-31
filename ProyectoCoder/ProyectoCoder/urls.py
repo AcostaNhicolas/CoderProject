@@ -15,9 +15,9 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
-from ProyectoCoder.views import familiar
+from AppCoder.views import ingresar_familiar
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('familiar/',familiar),
+    path('ingreso/', ingresar_familiar),
 ]
