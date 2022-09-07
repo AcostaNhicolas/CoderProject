@@ -1,0 +1,18 @@
+{% extends 'AppCoder/inicio.html' %}
+
+{% load static %}
+
+{% block pantalla %}
+<h1 style="text-align: center;">ESTA PANTALLA PERTENECE A SUPERVISORES</h1>
+
+<form action="{% url 'supervisores' %}" method="POST"> {% csrf_token %}
+    <table>
+        {{ formulario.as_table }}
+    </table>
+    <input type="submit" value="Enviar" style="color: rgb(136, 28, 28);">
+
+
+
+
+</form>
+{% endblock %}

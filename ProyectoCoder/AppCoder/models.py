@@ -1,14 +1,22 @@
 from django.db import models
 
 # Create your models here.
+class Campañas(models.Model):
+    nombre = models.CharField(max_length=30)
+    cantidad_empleados = models.IntegerField()
+    def __str__(self):
+        return self.nombre
 
-class Familiar(models.Model):
-    nombre = models.CharField(max_length=20)
-    apellido = models.CharField(max_length=20)
-    edad = models.IntegerField()
-    año_nacimiento = models.DateField()
+class Supervisores(models.Model):
+    nombre = models.CharField(max_length=30)
+    apellido = models.CharField(max_length=30)
+    grupo = models.IntegerField()
+    def __str__(self):
+        return self.nombre+' '+self.apellido
 
-class Domicilio(models.Model):
-    calle = models.CharField(max_length=50)
-    ciudad = models.CharField(max_length=50)
-    codigo_postal = models.IntegerField()
+class Agentes(models.Model):
+    nombre = models.CharField(max_length=30)
+    apellido = models.CharField(max_length=30)
+    grupo = models.IntegerField()
+    def __str__(self):
+        return self.nombre+' '+self.apellido

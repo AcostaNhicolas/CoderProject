@@ -20,7 +20,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # See https://docs.djangoproject.com/en/4.1/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'django-insecure-sh%wc&n_+ywo7m2g_kwsq%dy&89=y^a#6zm)2!y5q-_+)opwt3'
+SECRET_KEY = 'django-insecure-yh^v2i2(nfpqibx8g1#2^tqsx3^zcl^i00u(1zk(+fe_txm3zh'
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
@@ -55,7 +55,7 @@ ROOT_URLCONF = 'ProyectoCoder.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': ['C:/Users/NalxM/OneDrive/Documentos/Nhicolas/Coder-House/Coder/CoderProject/ProyectoCoder/Plantillas/'],
+        'DIRS': [],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
