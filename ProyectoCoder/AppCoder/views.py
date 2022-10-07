@@ -2,6 +2,7 @@ from django.http import HttpResponse
 from django.shortcuts import render
 from .models import Campañas, Supervisores, Agentes
 from AppCoder.forms import CampañasForm, SupervisoresForm, AgentesForm
+from django.views.generic import ListView, DetailView, CreateView, UpdateView, DeleteView
 
 # Create your views here.
 
@@ -34,8 +35,8 @@ def supervisores(request):
             nombre = info['nombre']
             apellido = info['apellido']
             grupo = info['grupo']
-            campaña = Supervisores(nombre=nombre,apellido=apellido,grupo=grupo)
-            campaña.save()
+            supervisores = Supervisores(nombre=nombre,apellido=apellido,grupo=grupo)
+            supervisores.save()
             return render(request, 'AppCoder/inicio.html')
     else:
         formulario = SupervisoresForm()
@@ -53,7 +54,8 @@ def agentes(request):
             grupo = info['grupo']
             agentes = Agentes(nombre=nombre,apellido=apellido,grupo=grupo)
             agentes.save()
-            return render(request, 'AppCoder/inicio.html')
+            agentes = Agentes.objects.all()
+            return render(request, 'AppCoder/leerAgentes.html', {'agentes':agentes})
     else:
         formulario = AgentesForm()
         return render(request, 'AppCoder/agentes.html', {'formulario':formulario})
@@ -72,4 +74,51 @@ def buscar(request):
         return render(request, 'AppCoder/resultadosBusqueda.html',{'agentes':agentes})
     else:
         return render(request, 'AppCoder/busquedaGrupo.html', {'mensaje':'Ingrese un grupo'})
+
+#--------------------- MOSTRAR AGENTE -----------------------
+
+def leerAgentes(request):
+    agentes = Agentes.objects.all()
+    return render(request, 'AppCoder/leerAgentes.html', {'agentes':agentes})
+
+#--------------------- ELIMINAR AGENTE -----------------------
+
+
+def eliminarAgente(request, id):
+    agente = Agentes.objects.get(id=id)
+    agente.delete()
+    agentes=Agentes.objects.all()
+    return render(request, 'AppCoder/leerAgentes.html', {'agentes':agentes})
+
+#--------------------- EDITAR AGENTE -----------------------
+
+def editarAgente(request, id):
+    agente = Agentes.objects.get(id=id)
+    if request.method == 'POST':
+        form = AgentesForm(request.POST)
+        if form.is_valid():
+            info = form.cleaned_data
+            agente.nombre = info['nombre']
+            agente.apellido = info['apellido']
+            agente.grupo = info['grupo']
+            agente.save()
+            agentes = Agentes.objects.all()
+            return render(request, 'AppCoder/leerAgentes.html', {'agentes':agentes})
+    else:
+        formulario = AgentesForm(initial={'nombre':agente.nombre,'apellido':agente.apellido,'grupo':agente.grupo})
+        return render(request, 'AppCoder/editarAgente.html', {'formulario':formulario, 'agente':agente})
+
+
+
+
+
+#--------------------- EDITAR AGENTE -----------------------
+
+
+class SupervisorList(ListView):
+    model = Supervisores
+    template_name = 'AppCoder/leerSupervisores.html'
+
+
+
 

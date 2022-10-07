@@ -1,11 +1,16 @@
 from django.urls import path
-from AppCoder import views
+from AppCoder.views import *
 
 urlpatterns = [
-    path('', views.inicio, name='inicio'),
-    path('agentes/', views.agentes, name='agentes'),
-    path('campañas/', views.campañas, name='campañas'),
-    path('supervisores/', views.supervisores, name='supervisores'),
-    path('busquedaGrupo/', views.busquedaGrupo, name='busquedaGrupo'),
-    path('buscar/', views.buscar, name='buscar'),
+    path('', inicio, name='inicio'),
+    path('agentes/', agentes, name='agentes'),
+    path('campañas/', campañas, name='campañas'),
+    path('supervisores/', supervisores, name='supervisores'),
+    path('busquedaGrupo/', busquedaGrupo, name='busquedaGrupo'),
+    path('buscar/', buscar, name='buscar'),
+    path('leerAgentes/', leerAgentes, name='leerAgentes'),
+    path('eliminarAgente/<id>', eliminarAgente, name='eliminarAgente'),
+    path('editarAgente/<id>', editarAgente, name='editarAgente'),
+    #cbv
+    path('supervisores/list/', SupervisorList.as_view(), name='estudiante_listar')
 ]

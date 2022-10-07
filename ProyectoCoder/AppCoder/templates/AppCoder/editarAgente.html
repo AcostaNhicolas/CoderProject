@@ -5,9 +5,9 @@ para ingresar nuevos agentes -->
 {% load static %}
 
 {% block pantalla %}
-<h1 style="text-align: center;">ESTA PANTALLA PERTENECE A AGENTES</h1>
+<h1 style="text-align: center;">EDITANDO UN AGENTE</h1>
 <!-- --------FORMULARIO--------- -->
-<form action="{% url 'agentes' %}" method="POST"> {% csrf_token %}
+<form action="{% url 'editarAgente' agente.id %}" method="POST"> {% csrf_token %}
     <table>
         {{ formulario.as_table }}
     </table>
