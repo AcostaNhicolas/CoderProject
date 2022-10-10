@@ -1,0 +1,38 @@
+
+{% extends 'base.html' %}
+
+{% block titulo %}
+<title>Galeria</title>
+{% endblock %}
+
+
+{% block content %}
+
+<h1>Todos los blogs disponibles</h1>
+<br>
+<hr>
+
+{% if blogs %}
+{% for blog in blogs %}
+    <div class="container">    
+        <ul>
+            <h2>{{blog.titulo}}</h2>
+            <h4>{{blog.subtitulo}}</h4>
+            <P>{{blog.fechaPublicacion}}</P>
+            <p>{{blog.autor}}</p>
+            <a href="{% url 'blogCompleto' blog.id %}">Leer Mas</a>
+        </ul>
+    </div>
+{% endfor %}
+
+{% else %}
+
+    <p>No hay blogs</p>
+{% endif %}
+
+<br>
+<hr>
+<a href="{% url 'nuevoBlog' %}">Agregar un nuevo blog</a>
+
+
+{% endblock %}

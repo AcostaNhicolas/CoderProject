@@ -1,0 +1,41 @@
+
+{% extends 'base.html' %}
+
+{% block titulo %}
+<title>Inicio</title>
+{% endblock %}
+
+
+{% block content %}
+
+<h1 style="text-align: center;">Todos los artículos disponibles</h1>
+<br>
+<hr>
+
+{% if blogs %}
+{% for blog in blogs %}
+<div class="container text-center">
+    <div class="row">
+        <div class="col">    
+            <ul>
+                <h2>{{blog.titulo}}</h2>
+                <h4>{{blog.subtitulo}}</h4>
+                <P>{{blog.fechaPublicacion}}</P>
+                <p>{{blog.autor}}</p>
+                <a class="btn btn-outline-primary" href="{% url 'blogCompleto' blog.id %}">Leer Mas</a>
+            </ul>
+        </div>
+    </div>
+</div>
+{% endfor %}
+{% else %}
+    <h2>No hay artículos disponibles aún</h2>
+{% endif %}
+
+<br>
+<hr>
+<a style="margin-bottom: 50px; margin-left: 40%;" class="btn btn-outline-dark" href="{% url 'nuevoBlog' %}">Agregar un nuevo artículo</a>
+
+{% endblock %}
+
+

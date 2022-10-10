@@ -1,0 +1,23 @@
+
+{% extends 'base.html' %}
+
+{% block titulo %}
+<title>Inicio</title>
+{% endblock %}
+
+{% block content %}
+<h1>Nuevo Artículo</h1>
+
+<div class="container">
+    <div class="form-group"> 
+        <form action="" method="post" enctype="multipart/form-data">
+            {% csrf_token %}
+            {{ form.media }}
+            {{ form.as_p }}
+            <button type="submit" class="btn btn-outline-success" value="publicar">Publicar</button>
+            <a class="btn btn-outline-dark" href="{% url 'inicio' %}">Volver</a>
+        </form>
+    </div>
+</div>
+
+{% endblock %}

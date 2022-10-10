@@ -1,0 +1,18 @@
+
+{% extends 'base.html' %}
+
+{% block titulo %}
+<title>EDITAR PERFIL DE {{usuario}}</title>
+{% endblock %}
+
+{% block content %}
+<h1>Formulario de edicion de perfil de </h1>
+<h4>{{mensaje}}</h4>
+<form action="{% url 'editarPerfil' %}" method="post">{% csrf_token %}
+    {{ form.as_p }}
+    <button type="submit" class="btn btn-outline-danger" value="guardar">Publicar</button>
+
+</form>
+
+
+{% endblock %}

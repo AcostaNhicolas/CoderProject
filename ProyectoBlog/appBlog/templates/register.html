@@ -1,0 +1,24 @@
+{% extends 'base.html' %}
+
+{% block titulo %}
+<title>Registro</title>
+{% endblock %}
+
+{% block content %}
+
+<div class="container"> 
+    <div class="form-group">
+        <h1> Formulario de registro</h1>
+        <form action="{% url 'register' %}" method="POST">{% csrf_token %}
+            <table>
+                {{ form.as_p }}
+            </table>
+            <button class="btn btn-outline-primary" type="submit">Registrar</button>
+
+        </form>
+    </div>
+</div>
+
+<h4 style="color: red;">{{mensaje}}</h4>
+
+{% endblock %}
