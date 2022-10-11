@@ -1,8 +1,7 @@
-from cmath import inf
 from django.shortcuts import render
 from .forms import BlogForm, UserRegisterForm, UserEditForm, AvatarForm
 from .models import Avatar, Blog
-from django.contrib.auth.forms import AuthenticationForm, UserCreationForm
+from django.contrib.auth.forms import AuthenticationForm
 from django.contrib.auth import login, logout, authenticate
 from django.contrib.auth.decorators import login_required
 
@@ -55,7 +54,7 @@ def editarBlog(request, id):
             blog.imagen = info['imagen']
             blog.save()
             blogs = Blog.objects.all()
-            return render(request, 'inicio.html',{'blogs':blogs,'avatar':getAvatar(request)})
+            return render(request, 'appBlog/inicio.html',{'blogs':blogs,'avatar':getAvatar(request)})
         else:
             return render(request,'editarBlog.html',{'form':form,'avatar':getAvatar(request),'mensaje':'Error al cagar el artículo'})
     else:

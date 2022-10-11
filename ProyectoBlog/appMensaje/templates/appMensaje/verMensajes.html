@@ -1,0 +1,19 @@
+
+{% extends 'base.html' %}
+
+{% block titulo %}
+<title>Blog Completo</title>
+{% endblock %}
+
+
+{% block content %}
+<div class="container">
+    <h1>Titulo: {{blog.titulo}}</h1>
+    <br>
+    <h3>Subtitulo: {{blog.subtitulo}}</h3>
+    <p>{{blog.cuerpo | safe}}</p>
+    <p>Publicado por: {{blog.autor}}</p>
+    <p>Fecha de publicacion: {{blog.fechaPublicacion}}</p>
+</div>
+
+{% endblock %}
