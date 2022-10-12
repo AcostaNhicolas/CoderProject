@@ -7,10 +7,12 @@
 
 
 {% block content %}
-<div class="container">
-    <h1>Titulo: {{blog.titulo}}</h1>
+<div class="container" style="margin-bottom: 50px;">
+    <div class="shadow-lg p-3 mb-5 bg-body rounded">
+        <h1 style="text-align: center;">{{blog.titulo}}</h1>
+    </div>
     <br>
-    <h3>Subtitulo: {{blog.subtitulo}}</h3>
+    <h3 style="text-align: center;"> {{blog.subtitulo}}</h3>
     <p>{{blog.cuerpo | safe}}</p>
     {% if blog.imagen %}
     <img src="{{blog.imagen.url}}" width="80%" alt="articulo-img">

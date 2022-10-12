@@ -14,6 +14,9 @@ def inicio(request):
     blogs = Blog.objects.all()
     return render(request, 'inicio.html',{'blogs':blogs,'avatar':getAvatar(request)})
 
+def about(request):
+    return render(request, 'about.html', {'avatar':getAvatar(request)})
+
 ######################################################################################
 #-------------------------------------  CRUD  --------------------------------------------
 def blogCompleto(request,id):
@@ -130,7 +133,7 @@ def addAvatar(request):
             avatar = Avatar(user=request.user, imagen=form.cleaned_data['imagen'])
             avatar.save()
             blogs = Blog.objects.all()
-            return render(request,'inicio.html',{'usuario':request.user, 'mensaje':'Avatar Agregado Correctamente','imagen':avatar.imagen.url})
+            return render(request,'inicio.html',{'blogs':blogs,'usuario':request.user, 'mensaje':'Avatar Agregado Correctamente','avatar':getAvatar(request)})
         else:
             return render(request, 'addAvatar.html',{'form':form,'mensaje':'Formulario Invalido', 'blogs':blogs, 'avatar':getAvatar(request)})
     else:

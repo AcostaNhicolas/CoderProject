@@ -8,7 +8,9 @@
 
 <div class="container"> 
     <div class="form-group">
-        <h1> Formulario de registro</h1>
+        <div class="shadow-lg p-3 mb-5 bg-body rounded">
+            <h1> Formulario de registro</h1>
+        </div>
         <form action="{% url 'register' %}" method="POST">{% csrf_token %}
             <table>
                 {{ form.as_p }}

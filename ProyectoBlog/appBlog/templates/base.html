@@ -1,3 +1,4 @@
+{% load static %}
 <!doctype html>
 <html lang="en">
   <head>
@@ -20,11 +21,11 @@
           <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav me-auto mb-2 mb-lg-0">
               <li class="nav-item">
-                <a class="nav-link" href="#">About</a>
+                <a class="nav-link" href="{% url 'about' %}">About</a>
               </li>
               {% if user.is_authenticated %}
               <li class="nav-item">
-                <a class="nav-link" href="{% url 'enviarMensaje' %}">Enviar Mensaje</a>
+                <a class="nav-link" href="{% url 'enviarMensaje' %}">Mensajes</a>
               </li>
               <li class="nav-item">
                 <a class="nav-link" href="{% url 'editarPerfil' %}">Editar mi Cuenta</a>
@@ -51,7 +52,7 @@
         </div>
     </nav>
     <br>
-    <div class="container">
+    <div class="container" style="color:rgb(20, 4, 114);">
         {% block content %}
 
         {% endblock %}

@@ -1,0 +1,29 @@
+
+{% extends 'base.html' %}
+
+{% block titulo %}
+<title>About Us</title>
+{% endblock %}
+
+
+{% block content %}
+<div class="shadow-lg p-3 mb-5 bg-body rounded">
+<h1 style="text-align: center; font-family: 'PT Serif', serif;">¿Quienes Soy?</h1>
+</div>
+
+<div class="card">
+    <div class="card-body">
+        <p style="font-size: 25px; font-family: 'PT Serif', serif;">Mi nombre es Nhicolas Acosta. Soy de Santiago del Estero, Argentina y tengo 25 años.
+            Vivo en Tucuman con mi esposa Karen con la que estoy casado hace casi 4 años.</p>
+        <p style="font-size: 25px; font-family: 'PT Serif', serif;">El camino de la programación me atrajo desde que estaba en la secundaria cuando comencé
+            aprendiendo sobre la tabla de la verdad aunque por un tiempo pensé que lo mío no era la
+            programación sino la administración. Ahora estoy seguro de que me encantan los codigos
+            y espero dedicarme a esto toda la vida.</p>
+    </div>
+</div>
+
+<a style="margin-left: 40%; margin-top: 50px;" class="btn btn-outline-dark" href="{% url 'inicio' %}">Volver</a>
+
+{% endblock %}
+
+

@@ -19,10 +19,8 @@ class Receptor(models.Model):
 class Mensaje(models.Model):
     mensaje = RichTextField(blank=True, null=True)
     emisor = models.ForeignKey(Emisor,null=True,  on_delete=models.CASCADE)
+    emisor = models.ForeignKey(Emisor,null=True,  on_delete=models.CASCADE)
     receptor = models.ForeignKey(Receptor, null=True, on_delete=models.CASCADE)
 
     def __str__(self):
         return 'De: ' + self.emisor.id_user.username + ' | Para: ' + self.receptor.id_user.username
-
-    # def get_absolute_url(self):
-    #     return reverse('verMensajes.html', args=(str(self.id)))

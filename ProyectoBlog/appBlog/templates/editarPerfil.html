@@ -6,7 +6,10 @@
 {% endblock %}
 
 {% block content %}
-<h1>Formulario de edicion de perfil de </h1>
+<div class="shadow-lg p-3 mb-5 bg-body rounded">
+    <h1>Formulario de edicion de perfil</h1>
+</div>
+
 <h4>{{mensaje}}</h4>
 <form action="{% url 'editarPerfil' %}" method="post">{% csrf_token %}
     {{ form.as_p }}
