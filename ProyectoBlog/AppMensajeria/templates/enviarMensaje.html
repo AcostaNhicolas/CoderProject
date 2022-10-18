@@ -1,18 +1,31 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-</head>
-<body>
-    
-    <form action="" method="POST">
-        {% csrf_token %}
-        {{form.as_p}}
-        <button>Enviar</button>
-    </form>
+{% extends 'base.html' %}
 
-</body>
-</html>
+{% block titulo %}
+<title>Nuevo Mensaje</title>
+{% endblock %}
+
+{% block content %}
+    
+<div class="shadow-lg p-3 mb-5 bg-body rounded">
+    <h1>Nuevo Mensaje</h1>
+</div>
+<div class="container" style="margin: 20px">
+    <a class="btn btn-outline-success" href="{% url 'buzonEntrada' user.id %}">Buzon de Entrada</a>
+    <a class="btn btn-outline-danger" href="{% url 'buzonSalida' user.id %}">Buzon de Salida</a>
+</div>
+
+<div style="text-align: center;" class="alert alert-success" role="alert">
+    <h4>{{mensaje}}</h4>
+</div>
+
+<div class="container">
+    <div class="form-floating mb-3">
+        <form action="" method="POST">
+            {% csrf_token %}
+            <li class="form-control">{{form.as_p}}</li>
+            <button>Enviar</button>
+        </form>
+    </div>
+</div>
+
+{% endblock %}

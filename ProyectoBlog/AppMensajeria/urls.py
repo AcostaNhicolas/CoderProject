@@ -1,11 +1,10 @@
 from unicodedata import name
 from django.urls import path
-from .views import EnviarMensaje
-from AppMensajeria import views
+from . import views
 urlpatterns = [
-    path('enviarMensaje/', EnviarMensaje.as_view(), name='enviarMensaje'),
+    path('enviarMensaje/', views.enviarMensaje, name='enviarMensaje'),
     path('buzonEntrada/<id>', views.buzonEntrada, name='buzonEntrada'),
     path('buzonSalida/<id>', views.buzonSalida, name='buzonSalida'),
     path('mensajeCompleto/<id>', views.mensajeCompleto, name='mensajeCompleto'),
-    path('responder/<id>', views.responder, name='responder'),
+    path('eliminarMensaje/<id>',views.eliminarMensaje, name='eliminarMensaje'),
 ]

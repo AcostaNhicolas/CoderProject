@@ -6,12 +6,12 @@ from django.urls import reverse
 # Create your models here.
 
 class Mensaje(models.Model):
-    emisor = models.OneToOneField(
+    emisor = models.ForeignKey(
         settings.AUTH_USER_MODEL,
         on_delete=models.CASCADE,
         related_name='emisor',
     )
-    receptor = models.OneToOneField(
+    receptor = models.ForeignKey(
         settings.AUTH_USER_MODEL,
         on_delete=models.CASCADE,
         related_name='receptor',
@@ -21,5 +21,5 @@ class Mensaje(models.Model):
     def __str__(self):
         return 'De: ' + str(self.emisor) + ' Para: ' + str(self.receptor)
 
-    def get_absolute(self):
-        return reverse('buzonEntrada.html')
+    def get_absolute_url(self):
+        return reverse('buzonEntrada')

@@ -1,18 +1,20 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-</head>
-<body>
-    
-        <h3>De: {{mensaje.emisor}}</h3> 
-        <h3>Para: {{mensaje.receptor}}</h3>
-        <p> {{mensaje.texto}}</p>
-        <a class="btn btn-outline-dark" href="{% url 'responder' mensaje.id %}">Responder</a>
-        <a href=""></a>
 
-</body>
-</html>
+{% extends 'base.html' %}
+
+{% block titulo %}
+<title>Buzon de Entrada</title>
+{% endblock %}
+    
+{% block content %}
+<div class="card" style="width: 18rem;">
+    <div class="card-body">
+      <h5 class="card-title">De: {{mensaje.emisor}}</h5>
+      <h6 class="card-subtitle mb-2 text-muted">Para: {{mensaje.receptor}}</h6>
+      <p class="card-text">{{mensaje.texto}}</p>
+      <a href="{% url 'enviarMensaje' %}" class="card-link">Responder</a>
+      <a href="{% url 'buzonEntrada' user.id %}" class="card-link">Volver</a>
+    </div>
+    <a class="btn btn-outline-danger" href="{% url 'eliminarMensaje' mensaje.id %}">Eliminar</a>
+</div>
+
+{% endblock %}

@@ -1,18 +1,34 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-</head>
-<body>
+
+{% extends 'base.html' %}
+
+{% block titulo %}
+<title>Buzon de Entrada</title>
+{% endblock %}
     
-    {% for mensaje in mensajes %}
-    <a href="{% url 'mensajeCompleto' mensaje.id %}"><li>{{mensaje.emisor}} - {{mensaje.receptor}}</li>}</a>
-
-    {% endfor %}
-
-
-</body>
-</html>
+{% block content %}
+    <div class="shadow-lg p-3 mb-5 bg-body rounded">
+        <h1 style="text-align: center;">Mensajes Recibidos</h1>
+    </div>
+    <h4>{{mensaje}}</h4>
+    <div class="container" style="margin: 20px">
+        <a style="margin-left: 80px;" class="btn btn-outline-dark btn-block" href="{% url 'buzonSalida' user.id %}">Buzon de Salida</a>
+        <a style="margin-left: 100px;" class="btn btn-outline-dark btn-block" href="{% url 'enviarMensaje' %}">Nuevo Mensaje</a>
+    </div>
+    {% if mensajes %}
+        {% for mensaje in mensajes %}
+            <div class="container text-center">
+                <div class="row justify-content-md-left">
+                    <div class="col col-lg-7">
+                        <table class="table table-dark">
+                                <td colspan="2" class="table-active"><a href="{% url 'mensajeCompleto' mensaje.id %}">De: {{mensaje.emisor}}</a></td>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        {% endfor %}
+    {% else %}
+    <h2>No hay mensajes recibidos</h2>
+    {% endif %}    
+{% endblock %}
+    
+    

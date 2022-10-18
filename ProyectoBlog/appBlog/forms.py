@@ -1,14 +1,13 @@
 from django import forms
 from django.contrib.auth.forms import UserCreationForm
 from django.contrib.auth.models import User
-from ckeditor.fields import RichTextFormField
 
 
 class BlogForm(forms.Form):
     titulo = forms.CharField(widget=forms.TextInput(attrs={'class':'form-control'}))
     subtitulo = forms.CharField(widget=forms.TextInput(attrs={'class':'form-control'}))
     autor = forms.CharField(widget=forms.TextInput(attrs={'class':'form-control'}))
-    cuerpo = RichTextFormField()
+    cuerpo = forms.Textarea(attrs={'class':'form-control'})
     imagen = forms.ImageField()
 
 class UserRegisterForm(UserCreationForm):
