@@ -22,5 +22,7 @@ Aquí podrá editar la informacion de su usuario tales como el nombre, apellido,
 ## Registrarse / Iniciar Sesion / Cerrar Sesion
 En el menú del sitio tendrá la posibilidad de iniciar sesion o registrarse en el caso de no tener una cuenta. 
 
+## Disculpa por el video sin audio - Lamentablemente se me dañò el microfono y no pude explicar
+
 # AUTOR DEL SITIO 
 - Nhicolas Alejandro Acosta 
